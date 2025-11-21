@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap');
+
+:root {
+  /* Core Palette */
+  --color-azure: #3855a6;
+  --color-link-water: #e0e5f5;
+  --color-lucky-point: #18155c;
+  --color-picton-blue: #31c5eb;
+
+  /* Tech Theme Overrides */
+  --bg-primary: #0a0a12;
+  /* Very dark blue/black */
+  --bg-secondary: #11111e;
+  /* Slightly lighter dark */
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0d0;
+  --accent-glow: var(--color-picton-blue);
+
+  --font-main: 'Inter', sans-serif;
+  --font-tech: 'Orbitron', sans-serif;
+
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-tech);
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-tech);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Utility Classes */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 16px;
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(49, 197, 235, 0.5);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary {
+  background-color: rgba(56, 85, 166, 0.2);
+  border-color: var(--color-azure);
+  color: var(--color-picton-blue);
+  box-shadow: 0 0 15px rgba(56, 85, 166, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-azure);
+  color: white;
+  box-shadow: 0 0 25px rgba(56, 85, 166, 0.6);
+}
+
+.btn-secondary {
+  background-color: rgba(49, 197, 235, 0.1);
+  border-color: var(--color-picton-blue);
+  color: var(--color-picton-blue);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-picton-blue);
+  color: var(--color-lucky-point);
+  box-shadow: 0 0 20px rgba(49, 197, 235, 0.5);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-azure);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-picton-blue);
+}

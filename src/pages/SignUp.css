@@ -1,0 +1,43 @@
+/* Reusing base styles from Login.css where possible */
+.signup-page {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    background: radial-gradient(circle at center, rgba(49, 197, 235, 0.1) 0%, transparent 70%);
+}
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Custom Select Style */
+.custom-select {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    background: rgba(10, 10, 18, 0.6);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    appearance: none;
+    cursor: pointer;
+}
+
+.custom-select:focus {
+    outline: none;
+    border-color: var(--color-picton-blue);
+    box-shadow: 0 0 15px rgba(49, 197, 235, 0.2);
+    background: rgba(10, 10, 18, 0.8);
+}
+
+.custom-select option {
+    background-color: var(--bg-secondary);
+    color: white;
+    padding: 10px;
+}

@@ -1,0 +1,35 @@
+.games-header {
+    background: linear-gradient(rgba(10, 10, 18, 0.8), rgba(10, 10, 18, 0.9)), url('../assets/tech_hero_bg.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.games-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(56, 85, 166, 0.8);
+}
+
+.games-content {
+    padding: 4rem 0;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 4rem;
+}
+
+.game-container {
+    padding: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.game-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(56, 85, 166, 0.2);
+    border-color: var(--color-picton-blue);
+}

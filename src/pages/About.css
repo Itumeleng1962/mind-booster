@@ -1,0 +1,99 @@
+.about-header {
+    background: linear-gradient(rgba(10, 10, 18, 0.8), rgba(10, 10, 18, 0.9)), url('../assets/tech_hero_bg.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.about-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(56, 85, 166, 0.8);
+}
+
+.about-content {
+    padding: 4rem 0;
+}
+
+.about-section {
+    margin-bottom: 4rem;
+}
+
+.about-section h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    position: relative;
+}
+
+.about-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-picton-blue);
+    box-shadow: 0 0 10px var(--color-picton-blue);
+}
+
+.about-section p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-card {
+    padding: 2rem;
+    transition: transform 0.3s ease;
+    border-left: 4px solid var(--color-azure);
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(56, 85, 166, 0.2);
+    border-color: var(--color-picton-blue);
+}
+
+.value-card h3 {
+    color: var(--color-picton-blue);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.partnerships-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.partnerships-list li {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    border: 1px solid var(--glass-border);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.partnerships-list li::before {
+    content: '•';
+    color: var(--color-picton-blue);
+    font-size: 1.5rem;
+}

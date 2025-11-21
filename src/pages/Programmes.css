@@ -1,0 +1,89 @@
+.programmes-header {
+    background: linear-gradient(rgba(10, 10, 18, 0.8), rgba(10, 10, 18, 0.9)), url('../assets/tech_hero_bg.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+}
+
+.programmes-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(56, 85, 166, 0.8);
+}
+
+.programmes-content {
+    padding: 4rem 0;
+}
+
+.programme-section {
+    margin-bottom: 4rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.programme-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(56, 85, 166, 0.2);
+}
+
+.programme-section-header {
+    background: linear-gradient(90deg, rgba(56, 85, 166, 0.2), transparent);
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.programme-section-header h2 {
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-picton-blue);
+    text-shadow: 0 0 10px rgba(49, 197, 235, 0.3);
+}
+
+.programme-details {
+    padding: 2rem;
+}
+
+.programme-details h3 {
+    color: white;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+.programme-details ul {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.programme-details li {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 5px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.programme-details li:hover {
+    background: rgba(49, 197, 235, 0.1);
+    border-color: var(--color-picton-blue);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .programme-details {
+        grid-template-columns: 1fr !important;
+    }
+
+    .programme-details img {
+        order: -1;
+        margin-bottom: 1rem;
+    }
+}

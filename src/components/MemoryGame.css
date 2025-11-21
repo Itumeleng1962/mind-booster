@@ -1,0 +1,83 @@
+.memory-game {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.memory-game h3 {
+    color: var(--color-picton-blue);
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+}
+
+.memory-game p {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.card {
+    aspect-ratio: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    border: 1px solid var(--glass-border);
+}
+
+.card:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(49, 197, 235, 0.3);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+    background-color: rgba(56, 85, 166, 0.3);
+    border: 2px solid var(--color-picton-blue);
+    box-shadow: 0 0 20px rgba(49, 197, 235, 0.5);
+}
+
+.card.solved {
+    background-color: rgba(40, 167, 69, 0.2);
+    border-color: #28a745;
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    color: var(--color-picton-blue);
+}
+
+.game-won {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--color-picton-blue);
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(49, 197, 235, 0.5);
+}

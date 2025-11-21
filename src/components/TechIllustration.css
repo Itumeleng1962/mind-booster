@@ -1,0 +1,120 @@
+.tech-illustration-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(49, 197, 235, 0.1) 0%, transparent 70%);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(49, 197, 235, 0.2);
+}
+
+.tech-illustration-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-icon {
+    color: var(--color-picton-blue);
+    filter: drop-shadow(0 0 15px rgba(49, 197, 235, 0.6));
+    animation: float 4s ease-in-out infinite;
+}
+
+.floating-element {
+    position: absolute;
+    color: var(--color-azure);
+    opacity: 0.7;
+}
+
+.fe-1 {
+    top: -40px;
+    right: -50px;
+    animation: float 5s ease-in-out infinite 1s;
+}
+
+.fe-2 {
+    bottom: -30px;
+    left: -50px;
+    animation: float 6s ease-in-out infinite 0.5s;
+}
+
+.holo-ring {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 2px solid rgba(49, 197, 235, 0.3);
+    border-radius: 50%;
+    animation: pulse-ring 3s infinite;
+}
+
+.holo-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(49, 197, 235, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(49, 197, 235, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    transform: perspective(500px) rotateX(60deg);
+    bottom: -50px;
+    opacity: 0.5;
+}
+
+.holo-scan {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--color-picton-blue);
+    top: 0;
+    animation: scan 3s linear infinite;
+    box-shadow: 0 0 10px var(--color-picton-blue);
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes scan {
+    0% {
+        top: 0;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
