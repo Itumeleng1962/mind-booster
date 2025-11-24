@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import { Brain, Star, Sun, Moon, Cloud, Zap } from 'lucide-react';
 import './MemoryGame.css';
 
@@ -12,6 +14,7 @@ const initialCards = [
 ];
 
 const MemoryGame = () => {
+    const { isAuthenticated } = useAuth();
     const [cards, setCards] = useState([]);
     const [flipped, setFlipped] = useState([]);
     const [solved, setSolved] = useState([]);
@@ -78,7 +81,14 @@ const MemoryGame = () => {
             {solved.length === initialCards.length && (
                 <div className="game-won">
                     <p>You Won!</p>
-                    <button className="btn btn-primary" onClick={resetGame}>Play Again</button>
+                    {isAuthenticated ? (
+                        <button className="btn btn-primary" onClick={resetGame}>Play Next Level</button>
+                    ) : (
+                        <div className="login-prompt">
+                            <p>Please login to continue to the next level</p>
+                            <Link to="/login" className="btn btn-primary">Login to Continue</Link>
+                        </div>
+                    )}
                 </div>
             )}
         </div>

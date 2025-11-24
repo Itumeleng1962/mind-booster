@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { User, Lock, ArrowRight } from 'lucide-react';
 import logo from '../assets/Mindbooster.jpeg';
+import { useAuth } from '../context/AuthContext';
 import './Auth.css';
 
 const Login = () => {
+    const { login } = useAuth();
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -17,8 +20,9 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Login attempt:', formData);
-        // Add actual login logic here later
-        alert('Login functionality coming soon!');
+        // Simulate login
+        login({ email: formData.email });
+        navigate('/');
     };
 
     return (

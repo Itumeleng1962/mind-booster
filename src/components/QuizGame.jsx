@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import './QuizGame.css';
 
 const questions = [
@@ -20,6 +22,7 @@ const questions = [
 ];
 
 const QuizGame = () => {
+    const { isAuthenticated } = useAuth();
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [score, setScore] = useState(0);
     const [showScore, setShowScore] = useState(false);
@@ -49,7 +52,14 @@ const QuizGame = () => {
             {showScore ? (
                 <div className="score-section">
                     <p>You scored {score} out of {questions.length}</p>
-                    <button className="btn btn-primary" onClick={resetQuiz}>Try Again</button>
+                    {isAuthenticated ? (
+                        <button className="btn btn-primary" onClick={resetQuiz}>Play Next Level</button>
+                    ) : (
+                        <div className="login-prompt">
+                            <p>Please login to continue to the next level</p>
+                            <Link to="/login" className="btn btn-primary">Login to Continue</Link>
+                        </div>
+                    )}
                 </div>
             ) : (
                 <>
