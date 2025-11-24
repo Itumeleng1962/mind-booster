@@ -29,14 +29,18 @@ const Navbar = () => {
           <li className="nav-item">
             <Link to="/about" className="nav-link" onClick={() => setIsOpen(false)}>About</Link>
           </li>
-          <li className="nav-item">
-            <Link to="/programmes" className="nav-link" onClick={() => setIsOpen(false)}>Programmes</Link>
+          <li className="nav-item dropdown-container">
+            <span className="nav-link dropdown-trigger">Programmes</span>
+            <div className="dropdown-menu">
+              <Link to="/programmes" className="dropdown-item" onClick={() => setIsOpen(false)}>All Programmes</Link>
+              <Link to="/games" className="dropdown-item" onClick={() => setIsOpen(false)}>Games</Link>
+            </div>
           </li>
           <li className="nav-item">
             <Link to="/services" className="nav-link" onClick={() => setIsOpen(false)}>Services</Link>
           </li>
           <li className="nav-item">
-            <Link to="/games" className="nav-link" onClick={() => setIsOpen(false)}>Games</Link>
+            <Link to="/plans-and-packages" className="nav-link" onClick={() => setIsOpen(false)}>Plans and Packages</Link>
           </li>
           <li className="nav-item">
             <Link to="/contact" className="nav-link" onClick={() => setIsOpen(false)}>Contact</Link>

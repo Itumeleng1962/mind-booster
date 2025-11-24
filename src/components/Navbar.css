@@ -41,6 +41,7 @@
 .nav-menu {
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-link {
@@ -51,6 +52,7 @@
     font-family: var(--font-tech);
     letter-spacing: 1px;
     font-size: 0.9rem;
+    cursor: pointer;
 }
 
 .nav-link:hover {
@@ -72,6 +74,50 @@
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+/* Dropdown Styles */
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background-color: rgba(10, 10, 18, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown-container:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-item {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-family: var(--font-tech);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(56, 85, 166, 0.1);
+    color: var(--color-picton-blue);
 }
 
 .menu-icon {
@@ -153,5 +199,30 @@
 
     .mobile-auth-buttons {
         display: flex;
+    }
+
+    /* Mobile Dropdown */
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        text-align: center;
+        padding: 0;
+        display: none;
+        /* Hidden by default on mobile until toggled or just show all */
+    }
+
+    .dropdown-container:hover .dropdown-menu {
+        display: block;
+    }
+
+    .dropdown-item {
+        padding: 0.5rem;
+        color: var(--text-secondary);
+        font-size: 0.85rem;
     }
 }
