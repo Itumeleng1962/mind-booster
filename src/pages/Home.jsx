@@ -122,6 +122,23 @@ const Home = () => {
                                 Play Games <ArrowRight size={16} style={{ display: 'inline', verticalAlign: 'middle' }} />
                             </Link>
                         </div>
+                        <div className="programme-card glass-panel">
+                            <div style={{ height: '200px', overflow: 'hidden', borderRadius: '8px', marginBottom: '1.5rem' }}>
+                                <img
+                                    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80"
+                                    alt="Professional workplace readiness"
+                                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s ease' }}
+                                    className="card-img"
+                                />
+                            </div>
+                            <h3>Graduate Work Readiness</h3>
+                            <p>
+                                Professional workplace readiness training for graduates entering the workforce.
+                            </p>
+                            <Link to="/programmes" className="btn btn-primary">
+                                View Details <ArrowRight size={16} style={{ display: 'inline', verticalAlign: 'middle' }} />
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </section>

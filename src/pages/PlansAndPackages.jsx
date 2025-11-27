@@ -1,7 +1,56 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { X, User, Mail, Phone, Building, Users, Send } from 'lucide-react';
 import './PlansAndPackages.css';
 
 const PlansAndPackages = () => {
+    const [selectedPackage, setSelectedPackage] = useState(null);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        organization: '',
+        numberOfLearners: '',
+        message: ''
+    });
+
+    const handlePackageClick = (packageName) => {
+        setSelectedPackage(packageName);
+        setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            organization: '',
+            numberOfLearners: '',
+            message: ''
+        });
+    };
+
+    const handleCloseModal = () => {
+        setSelectedPackage(null);
+    };
+
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Package enrollment:', selectedPackage, formData);
+        alert(`Thank you for your interest in ${selectedPackage}! We will contact you soon.`);
+        handleCloseModal();
+    };
+
+    const isSchoolPackage = (packageName) => {
+        return packageName?.includes('School') || packageName?.includes('Enterprise') || packageName?.includes('District');
+    };
+
+    const isGraduatePackage = (packageName) => {
+        return packageName?.includes('Graduate') || packageName?.includes('Job-Ready') || packageName?.includes('Corporate');
+    };
+
     return (
         <div className="plans-page">
             <div className="plans-header">
@@ -32,6 +81,12 @@ const PlansAndPackages = () => {
                             <li>Parent basic access</li>
                             <li>Email support</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Basic School Package')}
+                        >
+                            Get Started
+                        </button>
                     </div>
 
                     {/* B. STANDARD SCHOOL PACKAGE */}
@@ -53,6 +108,12 @@ const PlansAndPackages = () => {
                             <li>Dedicated account manager (virtual)</li>
                             <li>Priority support</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Standard School Package')}
+                        >
+                            Get Started
+                        </button>
                     </div>
 
                     {/* C. ADVANCED SCHOOL PACKAGE */}
@@ -73,6 +134,12 @@ const PlansAndPackages = () => {
                             <li>Term-by-term learner improvement analytics</li>
                             <li>Live 1-on-1 onboarding for teachers</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Advanced School Package')}
+                        >
+                            Get Started
+                        </button>
                     </div>
 
                     {/* D. ENTERPRISE / DISTRICT PACKAGE */}
@@ -92,6 +159,12 @@ const PlansAndPackages = () => {
                             <li>Data warehouse exports</li>
                             <li>Private cloud hosting option</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Enterprise / District')}
+                        >
+                            Get Started
+                        </button>
                     </div>
                 </div>
 
@@ -110,6 +183,12 @@ const PlansAndPackages = () => {
                             <li>Spelling booster</li>
                             <li>Monthly progress tracker</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Starter Pack')}
+                        >
+                            Get Started
+                        </button>
                     </div>
 
                     {/* B. Growth Pack */}
@@ -125,6 +204,12 @@ const PlansAndPackages = () => {
                             <li>Weekly parent reports</li>
                             <li>Access to reading & numeracy boosters</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Growth Pack')}
+                        >
+                            Get Started
+                        </button>
                     </div>
 
                     {/* C. Elite Pack */}
@@ -140,6 +225,12 @@ const PlansAndPackages = () => {
                             <li>Live group classes (scheduled)</li>
                             <li>1 Certificate per term</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Elite Pack')}
+                        >
+                            Get Started
+                        </button>
                     </div>
 
                     {/* D. Annual Family Pack */}
@@ -153,6 +244,12 @@ const PlansAndPackages = () => {
                             <li>Parent dashboard + insights</li>
                             <li>Exclusive educational workshops</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Annual Family Pack')}
+                        >
+                            Get Started
+                        </button>
                     </div>
                 </div>
 
@@ -171,6 +268,12 @@ const PlansAndPackages = () => {
                             <li>Interview basics</li>
                             <li>Basic digital skills</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Graduate Essentials')}
+                        >
+                            Get Started
+                        </button>
                     </div>
 
                     {/* B. Job-Ready Pro */}
@@ -187,6 +290,12 @@ const PlansAndPackages = () => {
                             <li>Workplace behaviour modules</li>
                             <li>Certificate of Completion</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Job-Ready Pro')}
+                        >
+                            Get Started
+                        </button>
                     </div>
 
                     {/* C. Corporate Graduate Pipeline Package */}
@@ -203,6 +312,12 @@ const PlansAndPackages = () => {
                             <li>Dedicated facilitator</li>
                             <li>Performance reports for HR</li>
                         </ul>
+                        <button 
+                            className="package-btn"
+                            onClick={() => handlePackageClick('Corporate Graduate Pipeline')}
+                        >
+                            Get Started
+                        </button>
                     </div>
                 </div>
 
@@ -223,6 +338,130 @@ const PlansAndPackages = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Package Enrollment Modal */}
+            {selectedPackage && (
+                <div className="modal-overlay" onClick={handleCloseModal}>
+                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="modal-close" onClick={handleCloseModal}>
+                            <X size={24} />
+                        </button>
+                        <h2 className="modal-title">Enroll in {selectedPackage}</h2>
+                        <form onSubmit={handleSubmit} className="package-form">
+                            <div className="form-group">
+                                <label htmlFor="name">
+                                    <User size={18} /> Full Name
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
+                                    placeholder="Enter your full name"
+                                />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="email">
+                                    <Mail size={18} /> Email Address
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                    placeholder="Enter your email"
+                                />
+                            </div>
+
+                            <div className="form-group">
+                                <label htmlFor="phone">
+                                    <Phone size={18} /> Phone Number
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    required
+                                    placeholder="Enter your phone number"
+                                />
+                            </div>
+
+                            {isSchoolPackage(selectedPackage) && (
+                                <>
+                                    <div className="form-group">
+                                        <label htmlFor="organization">
+                                            <Building size={18} /> School/Organization Name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            id="organization"
+                                            name="organization"
+                                            value={formData.organization}
+                                            onChange={handleChange}
+                                            required
+                                            placeholder="Enter school or organization name"
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="numberOfLearners">
+                                            <Users size={18} /> Number of Learners
+                                        </label>
+                                        <input
+                                            type="number"
+                                            id="numberOfLearners"
+                                            name="numberOfLearners"
+                                            value={formData.numberOfLearners}
+                                            onChange={handleChange}
+                                            required
+                                            min="1"
+                                            placeholder="Enter number of learners"
+                                        />
+                                    </div>
+                                </>
+                            )}
+
+                            {isGraduatePackage(selectedPackage) && (
+                                <div className="form-group">
+                                    <label htmlFor="organization">
+                                        <Building size={18} /> Company/Institution (if applicable)
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="organization"
+                                        name="organization"
+                                        value={formData.organization}
+                                        onChange={handleChange}
+                                        placeholder="Enter company or institution name (optional)"
+                                    />
+                                </div>
+                            )}
+
+                            <div className="form-group">
+                                <label htmlFor="message">Additional Information</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    rows="4"
+                                    placeholder="Tell us more about your requirements..."
+                                ></textarea>
+                            </div>
+
+                            <button type="submit" className="submit-btn">
+                                Submit Enrollment <Send size={18} style={{ marginLeft: '8px' }} />
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
