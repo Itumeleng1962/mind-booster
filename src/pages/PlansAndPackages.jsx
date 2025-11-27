@@ -62,7 +62,7 @@ const PlansAndPackages = () => {
 
             <div className="container">
                 {/* 1. SCHOOL / INSTITUTION PACKAGES */}
-                <h2 className="section-title">1. School / Institution Packages</h2>
+                <h2 className="section-title">School / Institution Packages</h2>
                 <div className="pricing-grid">
                     {/* A. BASIC SCHOOL PACKAGE */}
                     <div className="pricing-card card-blue">
@@ -169,7 +169,7 @@ const PlansAndPackages = () => {
                 </div>
 
                 {/* 2. PARENT / INDIVIDUAL LEARNER PACKAGES */}
-                <h2 className="section-title">2. Parent / Individual Learner Packages</h2>
+                <h2 className="section-title">Parent / Individual Learner Packages</h2>
                 <div className="pricing-grid">
                     {/* A. Starter Pack */}
                     <div className="pricing-card card-blue">
@@ -254,7 +254,7 @@ const PlansAndPackages = () => {
                 </div>
 
                 {/* 3. TERTIARY GRADUATE WORK READINESS PACKAGES */}
-                <h2 className="section-title">3. Tertiary Graduate Work Readiness</h2>
+                <h2 className="section-title">Tertiary Graduate Work Readiness</h2>
                 <div className="pricing-grid">
                     {/* A. Graduate Essentials */}
                     <div className="pricing-card card-blue">
@@ -324,7 +324,7 @@ const PlansAndPackages = () => {
                 {/* 5. WHITE-LABEL & PARTNER LICENSING */}
                 <div className="white-label-section">
                     <div className="white-label-content">
-                        <h3>5. White-Label & Partner Licensing</h3>
+                        <h3>White-Label & Partner Licensing</h3>
                         <p>For EdTech companies or institutions wanting their own version</p>
                         <div className="white-label-price">
                             R85,000 – R250,000 setup (branding + deployment)
